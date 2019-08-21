@@ -11,16 +11,15 @@ A C++ KV Store Engine (华为云TaurusDB性能挑战赛，司机队，初赛第1
 [chenshuaihao](https://github.com/chenshuaihao)  
 [Alan-Paul](https://github.com/Alan-Paul)  
 
-* 目录：  
-KV_Store_Engine_TaurusDB_Race_stage1 初赛代码，计算/存储不分离  
-KV_Store_Engine_TaurusDB_Race_stage1 复赛代码，计算/存储分离的设计，缓存设计。
-
 ## Envoirment
 * CPU：Intel(R) Xeon(R) Gold 6151 CPU @ 3.00GHz  (16核)
 * OS： Linux version 3.10.0-957.21.3.el7.x86_64
 
 ## build - 在代码根目录执行
-* 进入对应的目录，再编译构建，具体参见目录下的readme
+* 目录：  
+KV_Store_Engine_TaurusDB_Race_stage1 初赛代码，计算/存储不分离  
+KV_Store_Engine_TaurusDB_Race_stage1 复赛代码，计算/存储分离的设计，缓存设计。
+* 进入对应的目录，再编译构建，具体可参见目录下的readme
 
 ### Tech
 
