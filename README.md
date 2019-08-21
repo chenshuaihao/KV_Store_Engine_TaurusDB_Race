@@ -10,7 +10,7 @@ A C++ KV Store Engine (华为云TaurusDB性能挑战赛，司机队，初赛第1
 
 团队成员（排名不分先后）：  
 [YohannLiang](https://github.com/YohannLiang2016)  
-[chenshuaihao](https://github.com/chenshuaihao)  
+[Shuaihao Chen](https://github.com/chenshuaihao)  
 [Alan-Paul](https://github.com/Alan-Paul)  
 
 ## Envoirment
