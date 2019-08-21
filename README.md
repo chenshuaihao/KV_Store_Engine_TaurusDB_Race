@@ -6,7 +6,7 @@ A C++ KV Store Engine (华为云TaurusDB性能挑战赛，司机队，初赛第1
 
 ## 项目说明
 华为云TaurusDB性能挑战赛，基于C++编写的简易KV数据库存储引擎。  
-团队成员：  
+团队成员（排名不分先后）：  
 [YohannLiang](https://github.com/YohannLiang2016)  
 [chenshuaihao](https://github.com/chenshuaihao)  
 [Alan-Paul](https://github.com/Alan-Paul)  
@@ -28,12 +28,12 @@ KV_Store_Engine_TaurusDB_Race_stage1 复赛代码，计算/存储分离的设计
 * 随机写入阶段：  
 文件划分：key文件、value文件、metadata文件；  
 KV写入方式：KV均采用mmap缓冲区，保证kill -9后KV数据不丢失，所有key全部存mmap，value缓冲区凑够16个value（参数可调）就刷盘；  
-16个测试线程各自对应一个key文件，set时候直接向key文件对应的mmap内存追加key数据；  
-16个测试线程各自对应一个value文件，采用DIO方式顺序写入，先写入mmap缓冲区，凑够16个value调用pwrite向文件追加数据； 
-metadata文件保存元数据信息，用于数据恢复，具体保存了kill时候的文件偏移以及缓冲区已有value个数的信息
+key文件：16个测试线程各自对应一个key文件，set时候直接向key文件对应的mmap内存追加key数据；  
+value文件：采用DIO方式顺序写入，16个测试线程各自对应一个value文件，先写入mmap缓冲区，凑够16个value调用pwrite向文件追加数据； 
+metadata文件：保存元数据信息，用于数据恢复，具体保存了kill时候的文件偏移以及缓冲区已有value个数的信息
 
 * 顺序读取阶段：  
-每个测试线程开启18个存储IO线程（生产者线程）在后台运行，18个存储IO线程各自对应4MB内存分区，分区加载value文件到内存缓冲区，这样可以尽可能地打满SSD的IO带宽；  
+线程模型：每个测试线程开启18个存储IO线程（生产者线程）在后台运行，18个存储IO线程各自对应4MB内存分区，分区加载value文件到内存缓冲区，这样可以尽可能地打满SSD的IO带宽；  
 当测试线程get完当前分区数据后，唤醒对应的存储IO线程加载新的分区数据，并开始get下一个分区数据，典型的生产者消费者模型；  
 索引：采用STL的map实现，但是由于顺序读取特征，直接用计数器代替了。  
 
