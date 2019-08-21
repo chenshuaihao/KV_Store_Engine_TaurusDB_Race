@@ -4,9 +4,10 @@ A C++ KV Store Engine (华为云TaurusDB性能挑战赛，司机队，初赛第1
 
 [![license](https://img.shields.io/github/license/mashape/apistatus.svg)](https://opensource.org/licenses/MIT)
 
-## 项目说明
+## Introduction 
 简介：华为云TaurusDB性能挑战赛，基于C++编写的简易KV数据库存储引擎。  
 比赛结果：初赛279.911s，复赛使用nanomsg：5270.72s，后期替换成asio库后速度飞跃，但是线上一直有bug没来得及debug，只跑出了写入成绩260-350s。  
+赛后感想：三个学生党第一次参加这种工程类的比赛，接触并学到了很多新东西，拿到这个排名也很开心了。  
 
 团队成员（排名不分先后）：  
 [YohannLiang](https://github.com/YohannLiang2016)  
