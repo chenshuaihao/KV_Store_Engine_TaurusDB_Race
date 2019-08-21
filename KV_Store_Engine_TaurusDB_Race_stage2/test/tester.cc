@@ -36,7 +36,7 @@ const char *exeName(const char *name)
 void help(const char *name)
 {
     cout << "usage: " << name << " kv_num(million) threads so_path store_host" << endl;
-    cout << "   eg: " << name << " 10 2 ./libkv_store.so tcp://127.0.0.1" << endl;
+    cout << "   eg: " << name << " 10 2 ./libkv_service.so tcp://127.0.0.1" << endl;
     exit(-1);
 }
 
